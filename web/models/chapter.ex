@@ -1,14 +1,12 @@
-defmodule Twist.Book do
+defmodule Twist.Chapter do
   use Twist.Web, :model
 
-  schema "books" do
-    field :path, :string
+  schema "chapters" do
     field :title, :string
-    field :blurb, :string
     field :permalink, :string
+    belongs_to :book, Twist.Book
 
-    belongs_to :account, Twist.Account
-    has_many :chapters, Twist.Chapter
+    timestamps [inserted_at: :created_at]
   end
 
   @required_fields ~w()

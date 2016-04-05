@@ -13,5 +13,9 @@ defmodule Twist.SubdomainRouter do
 
     get "/", BookController, :index
     get "/:permalink", BookController, :show
+
+    scope "/:book_permalink", as: :book do
+      get "/:permalink", ChapterController, :show
+    end
   end
 end

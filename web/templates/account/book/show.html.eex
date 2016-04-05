@@ -1,0 +1,7 @@
+<h1><%= @book.title %></h1>
+
+<ol>
+  <%= for chapter <- @chapters do %>
+    <li><a href="<%= book_chapter_path(@conn, :show, @book.permalink, chapter.permalink) %>"><%= chapter.title %></li>
+  <% end %>
+</ol>
