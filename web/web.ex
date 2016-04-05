@@ -53,6 +53,7 @@ defmodule Twist.Web do
       use Phoenix.HTML
 
       import Twist.Router.Helpers
+      import Twist.SubdomainRouter.Helpers, except: [static_path: 2]
     end
   end
 
