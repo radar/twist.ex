@@ -1,0 +1,6 @@
+<ul>
+  <%= for book <- @books do %>
+    <li><a href="<%= book_path(@conn, :show, book.permalink) %>"><%= book.title %></li>
+  <% end %>
+</ul>
+
