@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <title>Twist</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -16,12 +17,17 @@
       <%= link to: "/" do %>
         <strong>Twist</strong>
       <% end %> |
+      <%= if current_account(@conn) do %>
+        <%= link to: account_root(@conn) do %>
+          <strong><%= current_account(@conn).name %></strong>
+        <% end %> |
+      <% end %>
     </menu>
 
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-12'>
-          <%= @inner %>
+          <%= render @view_module, @view_template, assigns %>
         </div>
       </div>
     </div> <!-- /container -->

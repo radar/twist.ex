@@ -15,5 +15,4 @@ defmodule Twist.Account.BookController do
       |> Repo.preload(:chapters)
     render conn, "show.html", book: book, chapters: book.chapters
   end
-
 end

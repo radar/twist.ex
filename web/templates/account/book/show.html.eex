@@ -1,7 +1,11 @@
-<h1><%= @book.title %></h1>
+<div class='row'>
+  <div class='col-md-7 content'>
+    <h1><%= @book.title %></h1>
 
-<ol>
-  <%= for chapter <- @chapters do %>
-    <li><a href="<%= book_chapter_path(@conn, :show, @book.permalink, chapter.permalink) %>"><%= chapter.title %></li>
-  <% end %>
-</ol>
+    <ol>
+      <%= for chapter <- @chapters do %>
+        <li><%= link chapter.title, to: book_chapter_path(@conn, :show, @book.permalink, chapter.permalink) %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>

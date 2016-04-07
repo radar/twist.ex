@@ -34,10 +34,7 @@ defmodule Twist.Web do
       import Twist.Router.Helpers
 
       def current_account(conn) do
-        subdomain = conn.private[:subdomain]
-        query = from account in Twist.Account,
-          where: account.subdomain == ^subdomain
-        Repo.one(query)
+        conn.assigns[:current_account]
       end
     end
   end

@@ -1,13 +1,11 @@
-defmodule Twist.Chapter do
+defmodule Twist.Element do
   use Twist.Web, :model
 
-  schema "chapters" do
+  schema "elements" do
+    belongs_to :chapter, Twist.Chapter
+    field :tag, :string
     field :title, :string
-    field :permalink, :string
-    field :part, :string
-    field :position, :integer
-    belongs_to :book, Twist.Book
-    has_many :elements, Twist.Element
+    field :content, :string
 
     timestamps [inserted_at: :created_at]
   end

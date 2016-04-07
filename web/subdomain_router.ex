@@ -6,6 +6,7 @@ defmodule Twist.SubdomainRouter do
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
+    plug Twist.Plugs.CurrentAccount
   end
 
   scope "/", Twist.Account do

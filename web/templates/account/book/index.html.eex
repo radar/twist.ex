@@ -1,6 +1,11 @@
-<ul>
-  <%= for book <- @books do %>
-    <li><a href="<%= book_path(@conn, :show, book.permalink) %>"><%= book.title %></li>
-  <% end %>
-</ul>
+<div class='row'>
+  <div class='col-md-7 content'>
+    <h1>Welcome to Twist</h1>
+
+    <%= for book <- @books do %>
+      <h2><%= link book.title, to: book_path(@conn, :show, book.permalink) %></h2>
+      <span class='blurb'><%= book.blurb %></span>
+    <% end %>
+  </div>
+</div>
 

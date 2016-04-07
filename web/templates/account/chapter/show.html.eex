@@ -1,0 +1,24 @@
+<div class='row'>
+  <div id='chapter' class='content col-md-7'>
+    <h1><%= link @book.title, to: book_path(@conn, :show, @book.permalink) %></h1>
+
+    <%= if @chapter.part == "mainmatter" do %>
+      <h2>Chapter <%= @chapter.position %> - <%= @chapter.title %></h2>
+    <%= else %>
+      <h2><%= @chapter.title %></h2>
+    <% end %>
+
+    <%= link "All notes for this chapter", to: "#" %>
+    <hr>
+    <%= render_many @elements, Twist.Account.ElementView, "element" %>
+  </div>
+
+  <div class='col-md-4'>
+    <div id='sidebar' data-spy="affix">
+      <hr>
+      <ul id='section_listing'>
+      </ul>
+      <hr>
+    </div>
+  </div>
+</div>
