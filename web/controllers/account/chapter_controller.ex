@@ -3,7 +3,6 @@ defmodule Twist.Account.ChapterController do
   alias Twist.Book
 
   def show(conn, params) do
-    IO.inspect(params)
     query = from book in Book,
       where: book.account_id == ^current_account(conn).id and
         book.permalink == ^params["book_permalink"]
@@ -15,7 +14,7 @@ defmodule Twist.Account.ChapterController do
 
     elements_query = from(element in assoc(chapter, :elements),
       order_by: [asc: :id])
-    elements = elements_query |> Repo.all
+    elements = elements_query |> Repo.all |> Repo.preload(:notes)
 
     headings = from(element in elements_query,
       where: element.tag == "h2" or element.tag == "h3")

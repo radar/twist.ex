@@ -1,12 +1,8 @@
-defmodule Twist.Element do
+defmodule Twist.Note do
   use Twist.Web, :model
 
-  schema "elements" do
-    belongs_to :chapter, Twist.Chapter
-    has_many :notes, Twist.Note
-    field :tag, :string
-    field :title, :string
-    field :content, :string
+  schema "notes" do
+    belongs_to :element, Twist.Element
 
     timestamps [inserted_at: :created_at]
   end

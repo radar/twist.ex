@@ -1,0 +1,6 @@
+<div class="footnote_container">
+  <div class="number">
+    <a href='##{name}'>fn 1</a>
+  </div>
+  <%= raw(@element.content) %>
+</div>

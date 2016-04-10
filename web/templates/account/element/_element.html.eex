@@ -1,3 +1,6 @@
 <div class='element'>
+  <span class='note_button note_button_<%= @element.tag %>'>
+    <a href="#"><%= Enum.count(@element.notes) %> notes</a>
+  </span>
   <%= raw(@element.content) %>
 </div>

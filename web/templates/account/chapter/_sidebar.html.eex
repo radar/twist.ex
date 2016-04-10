@@ -1,0 +1,7 @@
+<hr>
+<ul id="section_listing">
+  <%= for heading <- @headings do %>
+    <li class="<%= heading.class %>"><%= link heading.text, to: heading.link %></li>
+  <% end %>
+</ul>
+<hr>
